@@ -88,3 +88,8 @@ def saved_articles():
 
     articles = Article.query.filter_by(user_id=user_id).all()
     return render_template("saved.html", articles=articles)
+
+@main.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("main.home"))

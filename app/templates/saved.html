@@ -6,15 +6,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">📰 Tech News Dashboard</div>
+        <div class="nav-right">
+            <a href="{{ url_for('main.dashboard') }}">🏠 Dashboard</a>
+            <a href="{{ url_for('main.logout') }}">🚪 Logout</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>Saved Articles</h1>
-        <a href="{{ url_for('main.dashboard') }}">← Back to Dashboard</a>
-        <div class="articles">
+        <h1>🔖 Your Saved Articles</h1>
+
+        <div class="article-grid">
             {% for article in articles %}
                 <div class="card">
-                    <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
-                    <p>{{ article.summary }}</p>
-                    <small>Source: {{ article.source }}</small>
+                    <img src="https://source.unsplash.com/400x200/?reading,tech" alt="Saved image" class="card-img">
+                    <div class="card-content">
+                        <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.summary }}</p>
+                        <small><strong>Source:</strong> {{ article.source }}</small>
+                    </div>
                 </div>
             {% else %}
                 <p>No saved articles.</p>

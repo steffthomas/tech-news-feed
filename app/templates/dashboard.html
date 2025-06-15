@@ -2,43 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Dashboard | Tech News</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        .card {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-        }
-        button {
-            padding: 6px 12px;
-            margin-top: 5px;
-        }
-    </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">📰 Tech News Dashboard</div>
+        <div class="nav-right">
+            <a href="{{ url_for('main.saved_articles') }}">🔖 Saved Articles</a>
+            <a href="{{ url_for('main.logout') }}">🚪 Logout</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>📡 Your Tech News Feed</h1>
-        <a href="{{ url_for('main.saved_articles') }}">🔖 View Saved Articles</a>
-        <hr>
+        <h1>🛰️ Your Tech News Feed</h1>
 
-        {% for article in articles %}
-            <div class="card">
-                <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
-                <p>{{ article.summary }}</p>
-                <small><strong>Source:</strong> {{ article.source }}</small>
-
-                <form method="POST">
-                    <input type="hidden" name="title" value="{{ article.title }}">
-                    <input type="hidden" name="link" value="{{ article.link }}">
-                    <input type="hidden" name="summary" value="{{ article.summary }}">
-                    <input type="hidden" name="source" value="{{ article.source }}">
-                    <button type="submit">💾 Save</button>
-                </form>
-            </div>
-        {% else %}
-            <p>No articles to show.</p>
-        {% endfor %}
+        <div class="article-grid">
+            {% for article in articles %}
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x200/?technology,news" alt="Article image" class="card-img">
+                    <div class="card-content">
+                        <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
+                        <p>{{ article.summary }}</p>
+                        <small><strong>Source:</strong> {{ article.source }}</small>
+                        <form method="POST">
+                            <input type="hidden" name="title" value="{{ article.title }}">
+                            <input type="hidden" name="link" value="{{ article.link }}">
+                            <input type="hidden" name="summary" value="{{ article.summary }}">
+                            <input type="hidden" name="source" value="{{ article.source }}">
+                            <button type="submit" class="save-btn">💾 Save</button>
+                        </form>
+                    </div>
+                </div>
+            {% else %}
+                <p>No articles available.</p>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
