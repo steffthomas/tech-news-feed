@@ -20,8 +20,7 @@
 
         <div class="article-grid">
             {% for article in articles %}
-                <div class="card">
-                    <img src="https://source.unsplash.com/400x200/?technology,news" alt="Article image" class="card-img">
+                <div class="card no-image">
                     <div class="card-content">
                         <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
                         <p>{{ article.summary }}</p>
