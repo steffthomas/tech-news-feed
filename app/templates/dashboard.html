@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .card {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+        button {
+            padding: 6px 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📡 Your Tech News Feed</h1>
+        <a href="{{ url_for('main.saved_articles') }}">🔖 View Saved Articles</a>
+        <hr>
+
+        {% for article in articles %}
+            <div class="card">
+                <h3><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h3>
+                <p>{{ article.summary }}</p>
+                <small><strong>Source:</strong> {{ article.source }}</small>
+
+                <form method="POST">
+                    <input type="hidden" name="title" value="{{ article.title }}">
+                    <input type="hidden" name="link" value="{{ article.link }}">
+                    <input type="hidden" name="summary" value="{{ article.summary }}">
+                    <input type="hidden" name="source" value="{{ article.source }}">
+                    <button type="submit">💾 Save</button>
+                </form>
+            </div>
+        {% else %}
+            <p>No articles to show.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

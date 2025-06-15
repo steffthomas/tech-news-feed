@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Tech News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Tech News Dashboard</h1>
+        <a href="{{ url_for('main.google.login') }}">
+            <button>Login with Google</button>
+        </a>
+    </div>
+</body>
+
+</html>
