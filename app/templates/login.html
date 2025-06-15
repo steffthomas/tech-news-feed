@@ -2,21 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login | Tech News</title>
+    <title>Login | Tech News Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-left">📰 Tech News Dashboard</div>
-    </nav>
+    <div class="login-wrapper">
+        <!-- Left Section -->
+        <div class="login-left">
+            <h2>Welcome Back!</h2>
+            <p>Curated dev news from Hacker News & TechCrunch.<br> Stay informed, stay sharp.</p>
+            <a href="{{ url_for('main.google.login') }}">
+                <button class="login-google">🔐 Login with Google</button>
+            </a>
+        </div>
 
-    <div class="container center">
-        <h1>Welcome!</h1>
-        <p>Login to explore the latest tech news personalized for you.</p>
-        <a href="{{ url_for('main.google.login') }}">
-            <button class="login-btn">🔐 Login with Google</button>
-        </a>
+        <!-- Right Section -->
+        <div class="login-right">
+            <h1>📰 What’s New in Tech</h1>
+            <p class="tagline">Your personal tech news feed</p>
+        </div>
     </div>
 </body>
 </html>

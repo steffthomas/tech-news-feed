@@ -137,6 +137,92 @@ body {
     margin-top: 80px;
 }
 
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to right, #0e0e0e 50%, #3c1361 50%);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-left,
+.login-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-left h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #b58eff;
+}
+
+.login-left p {
+    font-size: 1.1rem;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-google {
+    background: linear-gradient(90deg, #b58eff, #7b57ff);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(181, 142, 255, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+.login-google:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #a772ff, #5c42d1);
+}
+
+.login-right {
+    background: linear-gradient(rgba(19, 19, 97, 0.9), rgba(60, 19, 97, 0.9)),
+                url("images/city-tech.jpeg") no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-right h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.login-right .tagline {
+    font-size: 1.1rem;
+    color: #ddd;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+
+@media screen and (max-width: 768px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        flex: unset;
+        width: 100%;
+        height: 50%;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     .navbar {
         flex-direction: column;
@@ -179,4 +265,57 @@ body {
     .card {
         margin: 10px auto;
     }
+}
+@media screen and (max-width: 768px) {
+    .login-wrapper {
+        flex-direction: column;
+    }
+
+    .login-left,
+    .login-right {
+        flex: none;
+        width: 100%;
+        height: 50%;
+        clip-path: none;
+        padding: 30px 20px;
+    }
+
+    .login-left h2,
+    .login-right h1 {
+        font-size: 1.6rem;
+    }
+
+    .login-left p,
+    .login-right .tagline {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .login-google {
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+
+    .login-right {
+        background-position: center;
+        background-size: cover;
+    }
+}
+.main-footer {
+    background: transparent;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #b58eff;
+    margin-top: 40px;
+}
+
+.main-footer a {
+    color: #b58eff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
 }

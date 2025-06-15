@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Tech News Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="main-footer">
+        👩‍💻 Coded with 💖 by
+        <a href="https://github.com/steffthomas" target="_blank">
+            Stefy Thomas
+        </a>
+    </footer>
+
+</body>
+</html>
